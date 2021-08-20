@@ -23,6 +23,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Navigation with arrows
+map ^[OA <up>
+map ^[OB <down>
+map ^[OC <right>
+map ^[OD <left>
+
+" find definition 
+nnoremap <Leader>d :FindDefinition<CR>
+
 " configura nerdtree
 function! CloseNerdTree()
   if g:NERDTree.IsOpen()
@@ -40,3 +49,4 @@ nnoremap <silent> <C-\> :LocalCloseNerdTree<cr>
 " Autocomplete html tags
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType erb set omnifunc=htmlcomplete#CompleteTags
+

@@ -1,4 +1,9 @@
+" Leader
+let mapleader = " "
+
+set nocompatible
 set nu " Set numerial lines 
+set termguicolors
 
 " Setoff sound alerts
 set belloff=all
@@ -6,6 +11,7 @@ set belloff=all
 set tabstop=2
 set shiftwidth=2
 set shiftround
+set colorcolumn=80
 
 " Set ruby identy
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
