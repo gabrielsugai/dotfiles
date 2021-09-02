@@ -32,6 +32,11 @@ map ^[OD <left>
 " find definition 
 nnoremap <Leader>d :FindDefinition<CR>
 
+" toggle git blamer
+nnoremap <Leader>b :BlamerToggle<CR>
+" Blamer disable by default
+let g:blamer_enabled = 0
+
 " configura nerdtree
 function! CloseNerdTree()
   if g:NERDTree.IsOpen()

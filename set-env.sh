@@ -7,22 +7,11 @@ if [ -z "$TMUX" ]; then
 	tmux start-server
 	# create a new tmux session, starting vim from a saved session in the new window
 
-	tmux new-session -d -s $session -n dev-env 
-	tmux send-keys "iugu;dev-env" C-m
+	tmux new-session -d -s $session -n dev 
 
-	tmux new-window -t $session:1 -n platform 
-	tmux send-keys "iugu;platform" C-m
-
-	tmux new-window -t $session:2 -n vault
-	tmux send-keys "iugu;smart-vault" C-m
-
-	tmux new-window -t $session:3 -n pixugu
-	tmux send-keys "iugu;pixugu" C-m
-
-	tmux new-window -t $session:4 -n boletos
-	tmux send-keys "iugu;registra-boletos" C-m
-
-	tmux new-window -t $session:5 -n develop 
+	# create a new pane with a specific dir
+	# tmux new-window -t $session:1 -n exemplo
+	# tmux send-keys "exemplo;exemplo" C-m
 
 	# return to main vim window
 	tmux select-window -t $session:0
