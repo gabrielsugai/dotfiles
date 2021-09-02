@@ -31,6 +31,8 @@ map ^[OD <left>
 
 " find definition 
 nnoremap <Leader>d :FindDefinition<CR>
+" find definition and open in a vertical split
+nnoremap <Leader>v :VFindDefinition<CR>
 
 " toggle git blamer
 nnoremap <Leader>b :BlamerToggle<CR>
