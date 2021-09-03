@@ -34,6 +34,10 @@ nnoremap <Leader>d :FindDefinition<CR>
 " find definition and open in a vertical split
 nnoremap <Leader>v :VFindDefinition<CR>
 
+" move select text forward and backward
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " toggle git blamer
 nnoremap <Leader>b :BlamerToggle<CR>
 " Blamer disable by default
