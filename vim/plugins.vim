@@ -1,6 +1,7 @@
 filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
