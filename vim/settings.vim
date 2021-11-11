@@ -1,5 +1,7 @@
 " KeyMapping
 
+set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
+
 " create <%= foo %> erb tags using Ctrl-k in edit mode
 imap <silent> <C-K> <%=  %><Esc>2hi
 
@@ -44,6 +46,20 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <Leader>b :BlamerToggle<CR>
 " Blamer disable by default
 let g:blamer_enabled = 0
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
 
 " configura nerdtree
 function! CloseNerdTree()
