@@ -17,7 +17,7 @@ nnoremap <silent> <Leader>\ <ESC><C-w>\|
 nnoremap <silent> <Leader>= <ESC><C-w>=
 
 " Open files from fzf
-nnoremap <silent> <C-p> <ESC>:Files
+nnoremap <silent> <C-p> <ESC>:Files<CR>
 
 "" Tabs
 nnoremap <S-Tab> gt
