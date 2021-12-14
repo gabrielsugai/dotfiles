@@ -14,7 +14,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'dracula/vim', { 'as': 'dracula'  }
 Plug 'luochen1990/rainbow'
 Plug 'APZelos/blamer.nvim'
-Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
 Plug 'misterbuckley/vim-definitive'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -34,6 +34,7 @@ let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_template = '|<commit-short>| <committer>, <committer-time> • <summary>'
 let g:airline_enable_branch = 1
+let g:airline_powerline_fonts = 1
 
 " Ativa match de tags e blocos
 runtime macros/matchit.vim

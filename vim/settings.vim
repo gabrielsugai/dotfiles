@@ -12,9 +12,9 @@ imap <silent> <C-J> <%  %><Esc>2hi
 map <C-t> <ESC>:TestNearest<CR>
 
 " Alt-\ minimiza paineis
-nnoremap <silent> « <ESC><C-w>\|
+nnoremap <silent> <Leader>\ <ESC><C-w>\|
 " Alt-= maximiza paineis
-nnoremap ≠ <ESC><C-w>=
+nnoremap <silent> <Leader>= <ESC><C-w>=
 
 "" Tabs
 nnoremap <S-Tab> gt
