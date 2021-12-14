@@ -12,17 +12,18 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/tComment'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dracula/vim', { 'as': 'dracula'  }
-Plug 'luochen1990/rainbow'
 Plug 'APZelos/blamer.nvim'
 Plug 'rking/ag.vim'
 Plug 'misterbuckley/vim-definitive'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
+
 filetype plugin indent on    " required
 
 " Plugin settings

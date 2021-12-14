@@ -1,5 +1,6 @@
 " Leader
 let mapleader = " "
+set backspace=indent,eol,start
 
 set nocompatible
 set nu " Set numerial lines 
@@ -24,7 +25,12 @@ autocmd FileType markdown setlocal spell
 " Load plugins and settings
 so ~/.vim/plugins.vim
 so ~/.vim/settings.vim
+
 syntax enable
+
+if exists("g:loaded_webdevicons")
+	call webdevicons#refresh()
+endif
 
 " Default to filename searches
 let g:ctrlp_by_filename = 1

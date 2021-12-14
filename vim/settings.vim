@@ -50,6 +50,11 @@ nnoremap <Leader>b :BlamerToggle<CR>
 " Blamer disable by default
 let g:blamer_enabled = 0
 
+" toggle raimbow brackets
+nnoremap <Leader>r :RainbowToggle<CR>
+" Raimbow disable by default
+let g:rainbow_active = 0
+
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
