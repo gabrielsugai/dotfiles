@@ -18,6 +18,8 @@ Plug 'rking/ag.vim'
 Plug 'misterbuckley/vim-definitive'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
