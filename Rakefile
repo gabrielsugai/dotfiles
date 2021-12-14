@@ -21,7 +21,7 @@ def my_vim_folder
 end
 
 def install_vim_plugins
-  system "vim -N \"+\n \"+set hidden\" \"+syntax on\" +PlugInstall +qall"
+  system "vim -N \"+set hidden\" \"+syntax on\" +PlugInstall +qall"
 end
 
 def install_files(files)
