@@ -17,7 +17,6 @@ Plug 'rking/ag.vim'
 Plug 'misterbuckley/vim-definitive'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
-Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
