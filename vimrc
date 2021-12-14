@@ -12,7 +12,7 @@ set belloff=all
 set tabstop=2
 set shiftwidth=2
 set shiftround
-set colorcolumn=80
+set colorcolumn=80,120
 set noswapfile
 
 " Set ruby identy
