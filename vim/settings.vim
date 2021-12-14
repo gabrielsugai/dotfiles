@@ -16,6 +16,9 @@ nnoremap <silent> <Leader>\ <ESC><C-w>\|
 " Alt-= maximiza paineis
 nnoremap <silent> <Leader>= <ESC><C-w>=
 
+" Open files from fzf
+nnoremap <silent> <C-p> <ESC>:Files
+
 "" Tabs
 nnoremap <S-Tab> gt
 
