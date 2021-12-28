@@ -20,6 +20,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ngmy/vim-rubocop'
 
 " All of your Plugins must be added before the following line
 call plug#end()
