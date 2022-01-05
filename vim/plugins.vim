@@ -30,9 +30,9 @@ filetype plugin indent on    " required
 " Plugin settings
 colorscheme dracula
 let g:airline_theme='dracula'
-let g:dracula_colorterm = 0
+" disable vim background color
+" let g:dracula_colorterm = 0
 let g:dracula_italic = 0
-let g:rainbow_active = 1
 let g:blamer_enabled = 1
 let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
