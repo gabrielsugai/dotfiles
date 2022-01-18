@@ -15,6 +15,7 @@ if [ -z "$TMUX" ]; then
 
 	# return to main vim window
 	tmux select-window -t $session:0
+	tmux split-window -v
 
 	# Finished setup, attach to the tmux session!
 	tmux attach-session -t $session
