@@ -22,6 +22,9 @@ autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 " Enable spellchecking for Markdown
 autocmd FileType markdown setlocal spell
 
+" Auto attach a tmux pane
+autocmd VimEnter * autocmd :VtrAttachToPane
+
 " Load plugins and settings
 so ~/.vim/plugins.vim
 so ~/.vim/settings.vim
