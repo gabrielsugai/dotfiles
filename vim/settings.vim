@@ -8,12 +8,18 @@ imap <silent> <C-K> <%=  %><Esc>2hi
 " create <%= foo %> erb tags using Ctrl-j in edit mode
 imap <silent> <C-J> <%  %><Esc>2hi
 
-" seta C-t para rodar teste mais proximo
-map <C-t> <ESC>:TestNearest<CR>
+" Run minitest specs
+nnoremap <Leader>mt <ESC>:TestNearest<CR>
 
-" Alt-\ minimiza paineis
+" vim-rspec mappings
+nnoremap <Leader>rs :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>rl :call RunLastSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
+
+" Space-\ minimiza paineis
 nnoremap <silent> <Leader>\ <ESC><C-w>\|
-" Alt-= maximiza paineis
+" Space-= maximiza paineis
 nnoremap <silent> <Leader>= <ESC><C-w>=
 
 " Open files from fzf
