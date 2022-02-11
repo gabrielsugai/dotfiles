@@ -8,7 +8,11 @@ set termguicolors
 
 " Setoff sound alerts
 set belloff=all
+
 " Set 2 spaces for tab
+set softtabstop=2
+set smarttab
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set shiftround
