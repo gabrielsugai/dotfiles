@@ -23,6 +23,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ngmy/vim-rubocop'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -34,7 +35,8 @@ colorscheme dracula
 let g:airline_theme='dracula'
 " disable vim background color
 " let g:dracula_colorterm = 0
-let g:dracula_italic = 0
+" disable italic syntax highlights
+" let g:dracula_italic = 0
 let g:blamer_enabled = 1
 let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
