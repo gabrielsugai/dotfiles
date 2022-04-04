@@ -2,6 +2,9 @@
 
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
 
+"Clear current search highlight by double tapping //
+nmap <silent> // :nohlsearch<CR>
+
 " create <%= foo %> erb tags using Ctrl-k in edit mode
 imap <silent> <C-K> <%=  %><Esc>2hi
 
@@ -10,6 +13,11 @@ imap <silent> <C-J> <%  %><Esc>2hi
 
 " Run minitest specs
 nnoremap <Leader>mt <ESC>:TestNearest<CR>
+
+" copy and paste
+" <space>y + motion ex: <space>yw
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+p<CR>
 
 " vim-rspec mappings
 nnoremap <Leader>rs :call RunCurrentSpecFile()<CR>
