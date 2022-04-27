@@ -16,7 +16,7 @@ nnoremap <Leader>mt <ESC>:TestNearest<CR>
 
 " copy and paste
 " <space>y + motion ex: <space>yw
-nnoremap <Leader>y "+y
+:vmap <S-y> "*y
 nnoremap <Leader>p "+p<CR>
 
 " vim-rspec mappings
