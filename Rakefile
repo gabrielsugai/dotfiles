@@ -50,6 +50,7 @@ def installation_message
   puts ''
   puts ''
   puts '======================================================================='
+  puts 'run <:TSInstall ruby> on vim to install ruby highlight'
   puts 'Thank you!'
   puts ''
   puts ''
