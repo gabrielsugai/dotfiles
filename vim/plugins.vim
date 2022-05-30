@@ -24,6 +24,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ngmy/vim-rubocop'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+" Plug 'joshdick/onedark.vim'
+Plug 'sainnhe/sonokai'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -31,8 +35,29 @@ call plug#end()
 filetype plugin indent on    " required
 
 " Plugin settings
-colorscheme dracula
-let g:airline_theme='dracula'
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = true
+    }
+  }
+
+require"nvim-treesitter.highlight".set_custom_captures {
+  -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+  ["symbol"] = "TSAttribute",
+  }
+EOF
+
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+let g:airline_theme = 'sonokai'
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
+
+" colorscheme dracula
+" let g:airline_theme='dracula'
 " disable vim background color
 " let g:dracula_colorterm = 0
 " disable italic syntax highlights
