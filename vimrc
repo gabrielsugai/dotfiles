@@ -3,7 +3,7 @@ let mapleader = " "
 set backspace=indent,eol,start
 
 set nocompatible
-set nu rnu " Set numerial lines 
+set nu " Set numerial lines
 set termguicolors
 
 " Setoff sound alerts
