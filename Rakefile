@@ -10,6 +10,7 @@ task :install do
     "vim",
   ]))
 
+  install_init_vim
   install_vim_plugins
   installation_message
 end
@@ -24,18 +25,30 @@ def install_vim_plugins
   system "vim -N \"+set hidden\" \"+syntax on\" +PlugInstall +qall"
 end
 
+def install_init_vim
+  run_command %{ mkdir -p "#{ENV["HOME"]}/.config/nvim" }
+  source = "#{ENV["PWD"]}/init.vim"
+  file = "#{ENV["HOME"]}/.config/nvim/init.vim"
+  file_exists?(file)
+
+  run_command %{ ln -nfs "#{source}" "#{file}" }
+end
+
 def install_files(files)
   files.each do |f|
     file_name = f.split('/').last
     source = "#{ENV["PWD"]}/#{f}"
     file = "#{ENV["HOME"]}/.#{file_name}"
-
-    if File.exists?(file)
-      puts "Moving #{file} to #{file}.bkp"
-      run_command %{ mv #{file} #{file}.bkp }
-    end
+    file_exists?(file)
 
     run_command %{ ln -nfs "#{source}" "#{file}" }
+  end
+end
+
+def file_exists?(file)
+  if File.exists?(file)
+    puts "Moving #{file} to #{file}.bkp"
+    run_command %{ mv #{file} #{file}.bkp }
   end
 end
 
