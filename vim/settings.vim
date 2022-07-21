@@ -33,6 +33,9 @@ nnoremap <silent> <Leader>= <ESC><C-w>=
 " Open files from fzf
 nnoremap <silent> <C-p> <ESC>:Files<CR>
 
+" Open live grep
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+
 "" Tabs
 nnoremap <S-Tab> gt
 

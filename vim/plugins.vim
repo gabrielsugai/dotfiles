@@ -28,7 +28,8 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'joshdick/onedark.vim'
 Plug 'sainnhe/sonokai'
 Plug 'nvim-treesitter/nvim-treesitter'
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 " All of your Plugins must be added before the following line
 call plug#end()
 
