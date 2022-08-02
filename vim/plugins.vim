@@ -59,6 +59,8 @@ lua << EOF
     mappings = {
       list = {
         { key = "u", action = "dir_up" },
+        { key = "s", action = "vsplit" },
+        { key = "t", action = "tabnew" },
         },
       },
     },
