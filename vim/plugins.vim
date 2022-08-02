@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
@@ -13,24 +12,22 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/tComment'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dracula/vim', { 'as': 'dracula'  }
 Plug 'APZelos/blamer.nvim'
-Plug 'rking/ag.vim'
-Plug 'misterbuckley/vim-definitive'
-Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ngmy/vim-rubocop'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
-" Plug 'joshdick/onedark.vim'
-Plug 'sainnhe/sonokai'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-" All of your Plugins must be added before the following line
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'dracula/vim', { 'as': 'dracula'  }
+" Plug 'joshdick/onedark.vim'
+" Plug 'sainnhe/sonokai'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -38,31 +35,44 @@ filetype plugin indent on    " required
 " Plugin settings
 
 lua << EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true
+  require'nvim-treesitter.configs'.setup {
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = true
+      }
     }
-  }
 
-require"nvim-treesitter.highlight".set_custom_captures {
-  -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-  ["symbol"] = "TSAttribute"
-  }
+  require"nvim-treesitter.highlight".set_custom_captures {
+    -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+    ["symbol"] = "TSAttribute"
+    }
+
+  require('lualine').setup {
+    options = {
+      theme = 'tokyonight'
+      }
+    }
+
+  require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+        },
+      },
+    },
+  renderer = {
+    group_empty = true,
+    },
+  filters = {
+    dotfiles = true,
+    }
+  })
 EOF
 
-let g:sonokai_style = 'andromeda'
-let g:sonokai_better_performance = 1
-let g:airline_theme = 'sonokai'
-let g:sonokai_enable_italic = 1
-colorscheme sonokai
+colorscheme tokyonight
 
-" colorscheme dracula
-" let g:airline_theme='dracula'
-" disable vim background color
-" let g:dracula_colorterm = 0
-" disable italic syntax highlights
-" let g:dracula_italic = 0
 let g:blamer_enabled = 1
 let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0

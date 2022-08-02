@@ -33,6 +33,8 @@ nnoremap <silent> <Leader>= <ESC><C-w>=
 " Open files from fzf
 nnoremap <silent> <C-p> <ESC>:Files<CR>
 
+nnoremap <silent> <Leader>r <ESC>:R<CR>
+
 " Open live grep
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 
@@ -82,18 +84,7 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
 " configura nerdtree
-function! CloseNerdTree()
-  if g:NERDTree.IsOpen()
-    NERDTreeClose
-  else
-    NERDTreeFind
-  endif
-endfunction
-
-" ==== NERD tree
-" " Open the project tree and expose current file in the nerdtree with Ctrl-\
-command! LocalCloseNerdTree call CloseNerdTree()
-nnoremap <silent> <C-\> :LocalCloseNerdTree<cr>
+nnoremap <silent> <C-\> :NvimTreeFindFileToggle<cr>
 
 " Autocomplete html tags
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
