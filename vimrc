@@ -18,7 +18,6 @@ set shiftwidth=2
 set shiftround
 set colorcolumn=80,120
 set noswapfile
-set splitright
 
 " Set ruby identy
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
