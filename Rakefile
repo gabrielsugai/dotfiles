@@ -12,6 +12,7 @@ task :install do
 
   install_init_vim
   install_vim_plugins
+  install_lua_plugin_config
   installation_message
 end
 
@@ -29,6 +30,15 @@ def install_init_vim
   run_command %{ mkdir -p "#{ENV["HOME"]}/.config/nvim" }
   source = "#{ENV["PWD"]}/init.vim"
   file = "#{ENV["HOME"]}/.config/nvim/init.vim"
+  file_exists?(file)
+
+  run_command %{ ln -nfs "#{source}" "#{file}" }
+end
+
+def install_lua_plugin_config
+  run_command %{ mkdir -p "#{ENV["HOME"]}/.config/nvim/lua" }
+  source = "#{ENV["PWD"]}/lua/plugins.lua"
+  file = "#{ENV["HOME"]}/.config/nvim/lua/plugins.lua"
   file_exists?(file)
 
   run_command %{ ln -nfs "#{source}" "#{file}" }
