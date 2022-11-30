@@ -42,6 +42,11 @@ lua << EOF
       }
     }
 
+  require('tokyonight').setup {
+    style = 'darker'
+    }
+  require('tokyonight').load()
+
   require"nvim-treesitter.highlight".set_custom_captures {
     -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
     ["symbol"] = "TSAttribute"
@@ -72,8 +77,6 @@ lua << EOF
     }
   })
 EOF
-
-colorscheme tokyonight
 
 let g:blamer_enabled = 1
 let g:blamer_show_in_visual_modes = 1
