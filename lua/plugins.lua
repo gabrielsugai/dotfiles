@@ -5,12 +5,6 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-require('lualine').setup {
-  options = {
-    theme = 'tokyonight'
-  }
-}
-
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
@@ -30,12 +24,14 @@ require("nvim-tree").setup({
     }
   })
 
-require('tokyonight').setup {
-  style = 'darker'
-}
-
+-- Neovim coloscheme
+require('tokyonight').setup { style = 'darker' }
 require('tokyonight').load()
 
+-- Lualine colorscheme
+require('lualine').setup { options = { theme = 'tokyonight' } }
+
+-- Plugins settings
 vim.g['blamer_enabled'] = 1
 vim.g['blamer_show_in_visual_modes'] = 1
 vim.g['blamer_show_in_insert_modes'] = 0
