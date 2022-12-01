@@ -33,7 +33,11 @@ nnoremap <silent> <Leader>= <ESC><C-w>=
 " Open files from fzf
 nnoremap <silent> <C-p> <ESC>:Files<CR>
 
+" Open test file
 nnoremap <silent> <Leader>r <ESC>:R<CR>
+
+" Open schema creation table
+nnoremap <silent> <Leader>a <ESC>:A<CR>
 
 " Open live grep
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
