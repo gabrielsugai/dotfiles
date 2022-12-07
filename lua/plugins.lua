@@ -23,10 +23,12 @@ require("nvim-tree").setup({
       dotfiles = true,
     }
   })
+-- Highlight the @foo.bar capture group with the "Identifier" highlight group
+vim.api.nvim_set_hl(0, "Symbol", { link = "NvimNumberPrefix" })
 
 -- Neovim coloscheme
-require('tokyonight').setup { style = 'darker' }
-require('tokyonight').load()
+-- require('tokyonight').setup { style = 'darker' }
+-- require('tokyonight').load()
 
 -- Lualine colorscheme
 require('lualine').setup { options = { theme = 'tokyonight' } }
