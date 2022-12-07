@@ -1,10 +1,10 @@
-# My VIM
+# My Dotfiles
 
 ## Install
 
 Run follow command:
 
 ```
-=sh -c "`curl -fSs https://raw.githubusercontent.com/gabrielsugai/my-vim/main/install.sh`"
+=sh -c "`curl -fSs https://raw.githubusercontent.com/gabrielsugai/dotfiles/main/install.sh`"
 ```
 

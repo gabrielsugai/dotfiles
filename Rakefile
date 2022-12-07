@@ -1,6 +1,6 @@
 require 'rake'
 
-desc 'Install My VIM configs in your machine'
+desc 'Install My Dotfiles configs in your machine'
 task :install do
   puts "Installing....."
 
@@ -18,8 +18,8 @@ end
 
 private
 
-def my_vim_folder
-  "$HOME/.my-vim"
+def dotfiles_folder
+  "$HOME/.dotfiles"
 end
 
 def install_vim_plugins

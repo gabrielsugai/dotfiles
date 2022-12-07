@@ -1,16 +1,16 @@
 #!/bin/sh
 
-if [ ! -d "$HOME/.my-vim"  ]
+if [ ! -d "$HOME/.dotfiles"  ]
 then
-	echo "Installing My VIM Enviorment"
+	echo "Installing My Dotfiles"
 	echo "We'll install some plugins"
 	echo ":D"
 	
-	echo "===Installing from gabrielsugai/my-vim==="
-	git clone --depth=10 https://github.com/gabrielsugai/my-vim.git "$HOME/.my-vim"
+	echo "===Installing from gabrielsugai/dotfiles==="
+	git clone --depth=10 https://github.com/gabrielsugai/dotfiles.git "$HOME/.dotfiles"
 
-	cd "$HOME/.my-vim"
+	cd "$HOME/.dotfiles"
 	rake install
 else
-	echo "You already have My VIM installed."
+	echo "You already have My Dotfiles installed."
 fi
