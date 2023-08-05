@@ -33,7 +33,7 @@ lspconfig["html"].setup({
 })
 
 -- configure html server
-lspconfig["ruby"].setup({
+lspconfig["solargraph"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
