@@ -6,13 +6,10 @@ task :install do
 
   install_files(Dir.glob([
     "tmux.conf",
-    "vimrc",
-    "vim",
   ]))
 
-  install_init_vim
-  install_vim_plugins
-  install_lua_plugin_config
+  copy_config_files
+  install_nvim_plugins
   installation_message
 end
 
@@ -22,26 +19,15 @@ def dotfiles_folder
   "$HOME/.dotfiles"
 end
 
-def install_vim_plugins
-  system "vim -N \"+set hidden\" \"+syntax on\" +PlugInstall +qall"
+def install_nvim_plugins
+  system "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 end
 
-def install_init_vim
-  run_command %{ mkdir -p "#{ENV["HOME"]}/.config/nvim" }
-  source = "#{ENV["PWD"]}/init.vim"
-  file = "#{ENV["HOME"]}/.config/nvim/init.vim"
-  file_exists?(file)
+def copy_config_files
+  source = "#{ENV["PWD"]}/nvim"
+  dir = "#{ENV["HOME"]}/.config/nvim"
 
-  run_command %{ ln -nfs "#{source}" "#{file}" }
-end
-
-def install_lua_plugin_config
-  run_command %{ mkdir -p "#{ENV["HOME"]}/.config/nvim/lua" }
-  source = "#{ENV["PWD"]}/lua/plugins.lua"
-  file = "#{ENV["HOME"]}/.config/nvim/lua/plugins.lua"
-  file_exists?(file)
-
-  run_command %{ ln -nfs "#{source}" "#{file}" }
+  run_command %{ ln -nfs "#{source}" "#{dir}" }
 end
 
 def install_files(files)
@@ -73,9 +59,8 @@ def installation_message
   puts ''
   puts ''
   puts '======================================================================='
-  puts 'run <:TSInstall ruby> on vim to install ruby highlight'
-  puts 'Thank you!'
   puts ''
+  puts 'Thank you!'
   puts ''
   puts '======================================================================='
 end
