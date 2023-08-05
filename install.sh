@@ -7,7 +7,7 @@ then
 	echo ":D"
 	
 	echo "===Installing from gabrielsugai/dotfiles==="
-	git clone --depth=10 https://github.com/gabrielsugai/dotfiles.git "$HOME/.dotfiles"
+	git clone -b neovim --depth=10 https://github.com/gabrielsugai/dotfiles.git "$HOME/.dotfiles"
 
 	cd "$HOME/.dotfiles"
 	rake install
