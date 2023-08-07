@@ -12,6 +12,4 @@ require("nvim_conf.plugins.nvim-tree")
 require("nvim_conf.plugins.telescope")
 require("nvim_conf.plugins.treesitter")
 
-require("nvim_conf.plugins.lsp.mason")
-require("nvim_conf.plugins.lsp.lspconfig")
-require("nvim_conf.plugins.lsp.null-ls")
+require("nvim_conf.plugins.lsp")
