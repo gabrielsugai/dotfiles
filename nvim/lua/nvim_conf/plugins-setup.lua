@@ -52,7 +52,8 @@ return packer.startup(function(use)
 	use("tpope/vim-rails")
 	use("vim-test/vim-test")
 	use("thoughtbot/vim-rspec")
-	-- use 'sheerun/vim-polyglot'
+  use("theprimeagen/harpoon")
+  use "RRethy/nvim-treesitter-endwise"
 
 	-- treesitter configuration
 	use({

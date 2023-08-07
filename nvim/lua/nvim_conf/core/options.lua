@@ -1,5 +1,10 @@
 local opt = vim.opt -- conciseness
 
+opt.guicursor = ""
+opt.swapfile = false
+opt.backup = false
+opt.colorcolumn = "80,120"
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true

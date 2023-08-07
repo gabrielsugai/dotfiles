@@ -33,3 +33,10 @@ treesitter.setup({
 	-- auto install above language parsers
 	auto_install = true,
 })
+
+require('nvim-treesitter.configs').setup {
+    endwise = {
+        enable = true,
+    },
+}
+
