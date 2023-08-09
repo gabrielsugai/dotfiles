@@ -4,8 +4,8 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"ruby-lsp",
-	"rubocop",
-	"erb-lint",
+	-- "rubocop",
+	-- "erb-lint",
 	"haml-lint",
 	"elixir-ls",
 })
@@ -27,6 +27,12 @@ cmp_mappings["<S-Tab>"] = nil
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
+	-- sources for autocompletion
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" }, -- lsp
+		{ name = "buffer" }, -- text within current buffer
+		{ name = "path" }, -- file system paths
+	}),
 })
 
 lsp.set_preferences({
@@ -79,3 +85,4 @@ lsp.setup()
 vim.diagnostic.config({
 	virtual_text = true,
 })
+

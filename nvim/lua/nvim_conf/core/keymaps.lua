@@ -20,10 +20,10 @@ keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
 -- create <%= foo %> erb tags using Ctrl-k in edit mode
-keymap.set("i", "<C-U>", "<%=  %><Esc>2hi")
+-- keymap.set("i", "<C-U>", "<%=  %><Esc>2hi")
 
 -- create <%= foo %> erb tags using Ctrl-j in edit mode
-keymap.set("i", "<C-I>", "<%  %><Esc>2hi")
+-- keymap.set("i", "<C-I>", "<%  %><Esc>2hi")
 
 -- copy and paste
 keymap.set("v", "<S-y>", '"*y')

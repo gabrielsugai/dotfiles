@@ -14,6 +14,12 @@ end
 telescope.setup({
   -- configure custom mappings
   defaults = {
+    file_ignore_patterns = {
+      "gems",
+      "public",
+      "structure",
+      "test_packaged"
+    },
     mappings = {
       i = {
         ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -25,3 +31,4 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+
