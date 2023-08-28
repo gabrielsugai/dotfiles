@@ -4,8 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"ruby-lsp",
-	-- "rubocop",
-	-- "erb-lint",
 	"haml-lint",
 	"elixir-ls",
 })
@@ -83,6 +81,6 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 })
 

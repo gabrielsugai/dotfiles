@@ -53,6 +53,10 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
+keymap.set("n", "<leader>b", ":BlamerToggle<CR>") -- toggle git blame
+
+keymap.set("n", "<leader>gb", ":Telescope git_bcommits<CR>") -- open blame history
+
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer
 
