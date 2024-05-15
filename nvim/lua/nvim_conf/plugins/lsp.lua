@@ -84,3 +84,6 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
+vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', {underline = false})
+vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', {underline = false})
+vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', {underline = false})

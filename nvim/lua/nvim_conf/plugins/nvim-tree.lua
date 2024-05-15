@@ -42,6 +42,7 @@ nvimtree.setup({
   },
   actions = {
     open_file = {
+      resize_window = true,
       window_picker = {
         enable = false,
       },

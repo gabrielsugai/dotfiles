@@ -28,6 +28,7 @@ end
 
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
+  use("ThePrimeagen/vim-be-good")
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
@@ -90,6 +91,14 @@ return packer.startup(function(use)
   use("APZelos/blamer.nvim") -- git blame
 
   use("ervandew/supertab")
+
+    use {
+      'andymass/vim-matchup',
+      setup = function()
+        -- may set any options here
+        vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      end
+    }
 
 	if packer_bootstrap then
 		require("packer").sync()
