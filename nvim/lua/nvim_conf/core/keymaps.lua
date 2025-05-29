@@ -33,6 +33,10 @@ keymap.set("v", "<S-y>", '"*y')
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
+-- selection indent
+keymap.set("v", ">", ">gv")
+keymap.set("v", "<", "<gv")
+
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
@@ -47,6 +51,9 @@ keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 keymap.set("n", "<leader>ff", "<C-^>") -- alternate buffers
+keymap.set("n", "<leader>tt", ":Themery<CR>") -- alternate buffers
+
+keymap.set("n", "<leader>ft", ":set filetype=") -- set filetype helper
 
 ----------------------
 -- Plugin Keybinds

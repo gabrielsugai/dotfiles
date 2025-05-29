@@ -11,5 +11,7 @@ require("nvim_conf.plugins.nvim-tree")
 require("nvim_conf.plugins.telescope")
 require("nvim_conf.plugins.treesitter")
 require("nvim_conf.plugins.harpoon")
+require("nvim_conf.plugins.themery")
+require("nvim_conf.plugins.flash")
 
 require("nvim_conf.plugins.lsp")

@@ -32,6 +32,20 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+  use 'zaldih/themery.nvim' -- neovim themes manager
+
+  use "catppuccin/nvim"
+  -- use('shaunsingh/nord.nvim')
+  use('AlexvZyl/nordic.nvim')
+  use('neanias/everforest-nvim')
+  use('bluz71/vim-moonfly-colors')
+  use('tiagovla/tokyodark.nvim')
+  use('catppuccin/nvim')
+  use('rebelot/kanagawa.nvim')
+	use("folke/tokyonight.nvim") -- colorscheme
+	use("rose-pine/neovim") -- colorscheme
+	use("ayu-theme/ayu-vim") -- colorscheme
+
 	use("folke/tokyonight.nvim") -- colorscheme
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 	use("szw/vim-maximizer") -- maximizes and restores current window
@@ -73,8 +87,6 @@ return packer.startup(function(use)
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
-			{ "williamboman/mason.nvim" }, -- Optional
-			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required
@@ -90,17 +102,17 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
   use("APZelos/blamer.nvim") -- git blame
 
-  use("ervandew/supertab")
+  use("folke/flash.nvim") -- flash
 
-    use {
-      'andymass/vim-matchup',
-      setup = function()
-        -- may set any options here
-        vim.g.matchup_matchparen_offscreen = { method = "popup" }
-      end
-    }
+  use {
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
 
-	if packer_bootstrap then
-		require("packer").sync()
-	end
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
