@@ -21,7 +21,6 @@ def dotfiles_folder
 end
 
 def install_nvim_plugins
-  system "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 end
 
 def copy_config_files
