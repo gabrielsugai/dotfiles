@@ -6,6 +6,7 @@ task :install do
 
   install_files(Dir.glob([
     "tmux.conf",
+    "wezterm.lua",
   ]))
 
   copy_config_files
