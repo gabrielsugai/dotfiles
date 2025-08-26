@@ -50,7 +50,7 @@ keymap.set("x", "<leader>p", [["_dP]])
 keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-keymap.set("n", "<leader>ff", "<C-^>") -- alternate buffers
+-- keymap.set("n", "<leader>ff", "<C-^>") -- alternate buffers
 keymap.set("n", "<leader>tt", ":Themery<CR>") -- alternate buffers
 
 keymap.set("n", "<leader>ft", ":set filetype=") -- set filetype helper
@@ -67,13 +67,13 @@ keymap.set("n", "<leader>b", ":BlamerToggle<CR>") -- toggle git blame
 keymap.set("n", "<leader>gb", ":Telescope git_bcommits<CR>") -- open blame history
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer
+-- keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer
 
 -- telescope
-keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+-- keymap.set("n", "<c-p>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+-- keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+-- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+-- keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- Run tests

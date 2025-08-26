@@ -10,4 +10,4 @@ set -g visual-bell off
 set -g visual-silence off
 setw -g monitor-activity off
 set -g bell-action none
-
+set -g status-justify 'absolute-centre'
