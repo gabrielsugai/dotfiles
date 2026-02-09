@@ -18,7 +18,7 @@ set -g pane-active-border-style 'bg=colour0 fg=#E05373'
 # statusbar
 set -g status-right '#[fg=white,bg=#24283B] #{battery_icon} #{battery_percentage} #[fg=white,bg=#24283B] CPU #{cpu_percentage} #[fg=white,bg=#24283B] RAM #{ram_percentage} #[fg=white,bg=#24283B] %d/%m #[fg=white,bg=#24283B] %H:%M:%S '
 set -g status-right-length 150
-set -g status-left-length 20
+set -g status-left-length 10
 
 setw -g window-status-current-style 'fg=#E05373 bg=#44475a'
 setw -g window-status-current-format ' #I #[fg=colour7]#W#[fg=colour8] '
