@@ -55,6 +55,17 @@ keymap.set("n", "<leader>tt", ":Themery<CR>") -- alternate buffers
 
 keymap.set("n", "<leader>ft", ":set filetype=") -- set filetype helper
 
+
+-- Maximizar painel atual (vertical)
+-- keymap.set("n", "<leader>\\", "<C-w>|", {
+--   desc = "Maximize current split"
+-- })
+
+-- Equalizar todos os painéis
+-- keymap.set("n", "<leader>=", "<C-w>=", {
+--   desc = "Equalize splits"
+-- })
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -92,11 +103,3 @@ keymap.set("n", "<Leader>r", "<ESC>:R<CR>")
 
 -- Open schema creation table
 keymap.set("n", "<Leader>a", "<ESC>:A<CR>")
-
--- Don't allow any default key-mappings.
-vim.g.tmux_navigator_no_mappings = 1
-
-keymap.set("n", "<c-h>", ":TmuxNavigateLeft<cr>")
-keymap.set("n", "<c-j>", ":TmuxNavigateDown<cr>")
-keymap.set("n", "<c-k>", ":TmuxNavigateUp<cr>")
-keymap.set("n", "<c-l>", ":TmuxNavigateRight<cr>")
