@@ -1,12 +1,11 @@
 return {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
-  dependencies = { 
+  dependencies = {
     'nvim-lua/plenary.nvim',
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make", -- compila a lib nativa (gera build/libfzf)
+    },
   },
   config = function()
     local telescope = require("telescope")
@@ -14,20 +13,18 @@ return {
     telescope.setup({
       extensions = {
         fzf = {
-          fuzzy = true,                    -- false will only do exact matching
-          override_generic_sorter = false,  -- override the generic sorter
-          override_file_sorter = false,     -- override the file sorter
-          case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-          -- the default case_mode is "smart_case"
+          fuzzy = true,                     -- false will only do exact matching
+          override_generic_sorter = true,   -- usa o sorter do fzf nos pickers genéricos
+          override_file_sorter = true,      -- usa o sorter do fzf na busca de arquivos
+          case_mode = "smart_case",         -- or "ignore_case" or "respect_case"
+          -- com isso, espaço = "E" entre termos: "app class" casa com app/class.rb
         }
       },
       defaults = {
-        file_ignore_patterns = {
-          "gems",
-          "public",
-          "structure",
-          "test_packaged"
-        },
+        -- Exclusões definidas em core/search.lua (base + testes).
+        -- <leader>ff / <leader>fg  → incluem testes (mantêm os outros filtros)
+        -- <leader>fa / <leader>fA  → buscam tudo, sem nenhum filtro
+        file_ignore_patterns = require("core.search").all,
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -37,6 +34,9 @@ return {
         },
       },
     })
+
+    -- precisa vir depois do setup; usa a lib nativa compilada pelo build acima
+    telescope.load_extension("fzf")
   end,
 
 }

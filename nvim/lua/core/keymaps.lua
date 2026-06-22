@@ -87,6 +87,34 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string u
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
+-- escape hatch: buscar TUDO (inclui testes, db, ignorados e ocultos)
+keymap.set("n", "<leader>fa", function()
+  require("telescope.builtin").find_files({
+    hidden = true,
+    no_ignore = true,
+    file_ignore_patterns = {},
+  })
+end, { desc = "Find files (sem filtros)" })
+keymap.set("n", "<leader>fA", function()
+  require("telescope.builtin").live_grep({
+    additional_args = { "--hidden", "--no-ignore" },
+    file_ignore_patterns = {},
+  })
+end, { desc = "Live grep (sem filtros)" })
+
+-- incluir testes: mantém os demais filtros, mas mostra specs/tests
+-- (ex.: achar um model e o spec dele de uma vez)
+keymap.set("n", "<leader>ff", function()
+  require("telescope.builtin").find_files({
+    file_ignore_patterns = require("core.search").base,
+  })
+end, { desc = "Find files (inclui testes)" })
+keymap.set("n", "<leader>fg", function()
+  require("telescope.builtin").live_grep({
+    file_ignore_patterns = require("core.search").base,
+  })
+end, { desc = "Live grep (inclui testes)" })
+
 -- Run tests
 -- Run minitest specs
 keymap.set("n", "<Leader>mt", "<ESC>:TestNearest<CR>") -- list available help tags
