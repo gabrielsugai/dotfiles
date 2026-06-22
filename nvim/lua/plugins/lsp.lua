@@ -42,6 +42,57 @@ return {
         capabilities = capabilities,
       })
 
+      -- Chaveamento ruby_lsp x solargraph por versão de Ruby -------------
+      -- ruby-lsp exige Ruby >= 3.0; projetos legados (ex.: platform, 2.4.10)
+      -- usam solargraph, que roda num Ruby moderno e ignora o bundle do
+      -- projeto. Cada server só anexa quando a versão do .ruby-version bate.
+      local function project_ruby_major(bufnr)
+        local name = vim.api.nvim_buf_get_name(bufnr)
+        local start = name ~= "" and vim.fs.dirname(name) or vim.fn.getcwd()
+        local found = vim.fs.find(".ruby-version", { upward = true, path = start })[1]
+        if not found then
+          return nil
+        end
+        local f = io.open(found, "r")
+        if not f then
+          return nil
+        end
+        local line = f:read("*l") or ""
+        f:close()
+        return tonumber(line:match("(%d+)%."))
+      end
+
+      -- Sem .ruby-version => assume Ruby moderno (ruby_lsp).
+      local function is_legacy_ruby(bufnr)
+        local major = project_ruby_major(bufnr)
+        return major ~= nil and major < 3
+      end
+
+      local function ruby_root(bufnr)
+        return vim.fs.root(bufnr, { "Gemfile", ".ruby-version", ".git" }) or vim.fn.getcwd()
+      end
+
+      vim.lsp.config("ruby_lsp", {
+        root_dir = function(bufnr, on_dir)
+          if is_legacy_ruby(bufnr) then
+            return -- projeto legado: deixa o solargraph cuidar
+          end
+          on_dir(ruby_root(bufnr))
+        end,
+      })
+
+      -- solargraph vem do rbenv (Ruby 3.1.2), fora do Mason: análise estática
+      -- roda nesse Ruby moderno e não depende do bundle 2.4 do projeto.
+      vim.lsp.config("solargraph", {
+        cmd = { vim.fn.expand("~/.rbenv/versions/3.1.2/bin/solargraph"), "stdio" },
+        root_dir = function(bufnr, on_dir)
+          if not is_legacy_ruby(bufnr) then
+            return -- projeto moderno: deixa o ruby_lsp cuidar
+          end
+          on_dir(ruby_root(bufnr))
+        end,
+      })
+
       -- Ajustes específicos por server -----------------------------------
       vim.lsp.config("lua_ls", {
         settings = {
@@ -64,9 +115,12 @@ return {
         automatic_enable = true,
       })
 
+      -- solargraph não é gerenciado pelo Mason: habilita manualmente.
+      vim.lsp.enable("solargraph")
+
       -- Aparência dos diagnósticos ---------------------------------------
       vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = false, -- inline desligado por padrão (alterna com <leader>dv)
         underline = true,
         update_in_insert = false,
         severity_sort = true,
@@ -80,6 +134,13 @@ return {
           },
         },
       })
+
+      -- Liga/desliga o diagnóstico inline (virtual_text) sob demanda.
+      vim.keymap.set("n", "<leader>dv", function()
+        local enabled = vim.diagnostic.config().virtual_text and true or false
+        vim.diagnostic.config({ virtual_text = not enabled })
+        vim.notify("Diagnóstico inline: " .. (enabled and "OFF" or "ON"))
+      end, { desc = "Diagnostics: alternar inline (virtual_text)" })
 
       -- Keymaps ativados quando um LSP anexa ao buffer -------------------
       vim.api.nvim_create_autocmd("LspAttach", {
