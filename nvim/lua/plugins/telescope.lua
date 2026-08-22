@@ -1,5 +1,5 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.8',
+  'nvim-telescope/telescope.nvim', tag = 'v0.2.2',
   dependencies = {
     'nvim-lua/plenary.nvim',
     {
@@ -16,8 +16,8 @@ return {
           fuzzy = true,                     -- false will only do exact matching
           override_generic_sorter = true,   -- usa o sorter do fzf nos pickers genéricos
           override_file_sorter = true,      -- usa o sorter do fzf na busca de arquivos
-          case_mode = "smart_case",         -- or "ignore_case" or "respect_case"
-          -- com isso, espaço = "E" entre termos: "app class" casa com app/class.rb
+          -- ignore_case (e não smart_case): com smart_case, query com maiúscula
+          case_mode = "ignore_case",        -- or "smart_case" or "respect_case"
         }
       },
       defaults = {
