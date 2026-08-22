@@ -12,6 +12,7 @@ return {
     },
   },
 
+  -- nvim-lspconfig: traz os arquivos lsp/<server>.lua usados pelo vim.lsp
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -20,14 +21,15 @@ return {
       { "mason-org/mason-lspconfig.nvim" },
     },
     config = function()
+      -- Servers que queremos sempre disponíveis
       local servers = {
-        "ruby_lsp",
-        "lua_ls",
-        "ts_ls",
-        "yamlls",
-        "jsonls",
-        "bashls",
-        "gopls",
+        "ruby_lsp", -- Ruby / Rails (Shopify ruby-lsp)
+        "lua_ls",   -- Lua (config do próprio Neovim)
+        "ts_ls",    -- JavaScript / TypeScript
+        "yamlls",   -- YAML
+        "jsonls",   -- JSON
+        "bashls",   -- Bash / sh
+        "gopls",    -- Go
       }
 
       -- Capabilities turbinadas pelo blink.cmp (autocomplete via LSP).
@@ -143,6 +145,9 @@ return {
       end, { desc = "Diagnostics: alternar inline (virtual_text)" })
 
       -- Keymaps ativados quando um LSP anexa ao buffer -------------------
+      -- Obs.: o Neovim 0.11 já traz por padrão: grn (rename), gra (code
+      -- action), grr (references), gri (implementation), K (hover) e [d/]d
+      -- (navegar diagnósticos). Os mapeamentos abaixo complementam isso.
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("user-lsp-attach", { clear = true }),
         callback = function(ev)

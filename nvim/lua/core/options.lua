@@ -29,6 +29,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.cmdheight = 0 -- remove a linha vazia do command line (cola a lualine na barra do tmux)
 
 -- backspace
 opt.backspace = "indent,eol,start"

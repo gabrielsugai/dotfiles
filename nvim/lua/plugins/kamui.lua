@@ -28,4 +28,3 @@ return {
     { "<C-l>", function() require("kamui").navigate("right") end },
   },
 }
-
